@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Flipper || Simple</title>
+    <!-- styles -->
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+
+
+        :root {
+
+
+    
+            --clr-white: #fff;
+            --clr-black: #222;
+            --ff-primary: "Roboto", sans-serif;
+            --ff-secondary: "Open Sans", sans-serif;
+            --transition: all 0.3s linear;
+            --spacing: 0.25rem;
+            --radius: 0.5rem;
+            --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            --max-width: 1170px;
+            --fixed-width: 620px;
+        }
+
+        /*
+===============
+Global Styles
+===============
+*/
+
+        *,
+        ::after,
+        ::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--ff-secondary);
+            background: var(--clr-grey-10);
+            color: var(--clr-grey-1);
+            line-height: 1.5;
+            font-size: 0.875rem;
+        }
+
+        
+
+        a {
+            text-decoration: none;
+        }
+
+    
+        h2,
+        h4 {
+            letter-spacing: var(--spacing);
+            text-transform: capitalize;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            font-family: var(--ff-primary);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 0.875rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--clr-grey-5);
+        }
+
+        @media screen and (min-width: 800px) {
+            
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+           
+
+            h4 {
+                font-size: 1rem;
+            }
+
+            body {
+                font-size: 1rem;
+            }
+
+            h2,
+            h4 {
+                line-height: 1;
+            }
+        }
+
+        /*  global classes */
+
+        .btn {
+            font-family: var(--ff-primary);
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--clr-black);
+            padding: 0.375rem 0.75rem;
+            letter-spacing: var(--spacing);
+            display: inline-block;
+            font-weight: 700;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            border: 2px solid var(--clr-black);
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+        }
+
+        .btn:hover {
+            color: var(--clr-white);
+            background: var(--clr-black);
+        }
+
+        .btn-hero {
+            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+        }
+
+
+
+        /*
+===============
+Container
+===============
+*/
+        main {
+            min-height: calc(100vh - 3rem);
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .container h1 {
+            color: var(--clr-black);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+        }
+
+        .color {
+            color: var(--clr-primary-5);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <main>
+        <div class="container">
+            <h1>Counter</h1>
+            <h2 class="counter">0</h2>
+
+            <button class="btn btn-hero" id="decreaseBtn">Decrease</button>
+            <button class="btn btn-hero" id="resetBtn">Reset</button>
+            <button class="btn btn-hero" id="increaseBtn">Increase</button>
+
+        </div>
+    </main>
+
+    
+    <!-- javascript -->
+    <script>
+        
+        const decrease = document.getElementById("decreaseBtn");
+        const reset = document.getElementById("resetBtn");
+        const increase = document.getElementById("increaseBtn");
+
+        const counter = document.querySelector(".counter");
+        let counter_value = 0;
+
+        decrease.addEventListener("click", function() {
+            counter_value--;
+            counter.textContent=counter_value;
+        });
+
+        reset.addEventListener("click", function() {
+            counter_value = 0;
+            counter.textContent=counter_value;
+        });
+        increase.addEventListener("click", function() {
+            counter_value++;
+            counter.textContent=counter_value;
+        });
+     
+    </script>
+
+
+</body>
+
+</html>
+
